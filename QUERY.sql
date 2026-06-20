@@ -60,7 +60,8 @@ CREATE TABLE
     payment_status TEXT DEFAULT 'Pending' CHECK (
       payment_status IN ('Pending', 'Confirmed', 'Cancelled')
     ),
-    total_cost DECIMAL(10, 2) NOT NULL CHECK (total_cost>=0)
+    total_cost DECIMAL(10, 2) NOT NULL CHECK (total_cost>=0),
+    UNIQUE(match_id, seat_number)
     -- Write your constraint to make 'booking_id' the Primary Key
     -- Write your Foreign Key constraint linking 'user_id' to the Users table
     -- Write your Foreign Key constraint linking 'match_id' to the Matches table
